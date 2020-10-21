@@ -1,5 +1,5 @@
-//go:build windows && amd64
-// +build windows,amd64
+//go:build windows
+// +build windows
 
 package winapi
 
