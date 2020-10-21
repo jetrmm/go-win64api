@@ -13,11 +13,11 @@ import (
 )
 
 func InstalledSoftwareList() ([]so.Software, error) {
-	sw64, err := getSoftwareList(`SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall`, "X64")
+	sw64, err := GetSoftwareList(`SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall`, "X64")
 	if err != nil {
 		return nil, err
 	}
-	sw32, err := getSoftwareList(`SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall`, "X32")
+	sw32, err := GetSoftwareList(`SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall`, "X32")
 	if err != nil {
 		return nil, err
 	}
@@ -25,7 +25,7 @@ func InstalledSoftwareList() ([]so.Software, error) {
 	return append(sw64, sw32...), nil
 }
 
-func getSoftwareList(baseKey string, arch string) ([]so.Software, error) {
+func GetSoftwareList(baseKey string, arch string) ([]so.Software, error) {
 	k, err := registry.OpenKey(registry.LOCAL_MACHINE, baseKey, registry.QUERY_VALUE|registry.ENUMERATE_SUB_KEYS)
 	if err != nil {
 		return nil, fmt.Errorf("Error reading from registry: %s", err.Error())
