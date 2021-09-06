@@ -8,6 +8,7 @@ import (
 
 	ole "github.com/go-ole/go-ole"
 	"github.com/go-ole/go-ole/oleutil"
+	"github.com/scjalliance/comshim"
 )
 
 // Firewall related API constants.
@@ -766,7 +767,7 @@ func firewallRulesEnumRealease(unknownRules, enumProperty *ole.VARIANT) {
 // then:
 // dispatch firewallAPIRelease(u, fwp)
 func firewallAPIInit() (*ole.IUnknown, *ole.IDispatch, error) {
-	ole.CoInitializeEx(0, ole.COINIT_APARTMENTTHREADED|ole.COINIT_SPEED_OVER_MEMORY)
+	comshim.Add(1)
 
 	unknown, err := oleutil.CreateObject("HNetCfg.FwPolicy2")
 	if err != nil {
@@ -787,5 +788,5 @@ func firewallAPIInit() (*ole.IUnknown, *ole.IDispatch, error) {
 func firewallAPIRelease(u *ole.IUnknown, fwp *ole.IDispatch) {
 	fwp.Release()
 	u.Release()
-	ole.CoUninitialize()
+	comshim.Done()
 }
