@@ -1,4 +1,4 @@
-module github.com/wh1te909/go-win64api
+module github.com/sarog/go-win64api
 
 go 1.15
 
