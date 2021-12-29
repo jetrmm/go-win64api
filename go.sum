@@ -10,6 +10,7 @@ github.com/google/glazier v0.0.0-20210617205946-bf91b619f5d4/go.mod h1:g7oyIhind
 github.com/google/go-cmp v0.5.4/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/logger v1.1.0/go.mod h1:w7O8nrRr0xufejBlQMI83MXqRusvREoJdaAxV+CoAB4=
 github.com/google/subcommands v1.2.0/go.mod h1:ZjhPrFU+Olkh9WazFPsl27BQ4UPiG37m3yTrtFlrHVk=
+github.com/iamacarpet/go-win64api v0.0.0-20210311141720-fe38760bed28 h1:QhDPvIcXXFltItF7kQ2Go4frViywCx9xDl2okzLNt+A=
 github.com/iamacarpet/go-win64api v0.0.0-20210311141720-fe38760bed28/go.mod h1:oGJx9dz0Ny7HC7U55RZ0Smd6N9p3hXP/+hOFtuYrAxM=
 github.com/robfig/cron/v3 v3.0.1/go.mod h1:eQICP3HwyT7UooqI/z+Ov+PtYAWygg1TEWWzGIFLtro=
 github.com/scjalliance/comshim v0.0.0-20190308082608-cf06d2532c4e h1:+/AzLkOdIXEPrAQtwAeWOBnPQ0BnYlBW0aCZmSb47u4=
