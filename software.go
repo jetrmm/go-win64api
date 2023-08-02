@@ -104,6 +104,7 @@ func GetSoftwareList(baseKey string, arch string) ([]so.Software, error) {
 
 			swList = append(swList, swv)
 		}
+		sk.Close()
 	}
 
 	return swList, nil
