@@ -8,7 +8,7 @@ import (
 
 	ole "github.com/go-ole/go-ole"
 	"github.com/go-ole/go-ole/oleutil"
-	so "github.com/iamacarpet/go-win64api/shared"
+	so "github.com/jetrmm/go-win64api/shared"
 	"github.com/scjalliance/comshim"
 )
 

@@ -1,3 +1,4 @@
+//go:build windows
 // +build windows
 
 package winapi
@@ -12,7 +13,7 @@ import (
 	"time"
 	"unsafe"
 
-	so "github.com/iamacarpet/go-win64api/shared"
+	so "github.com/jetrmm/go-win64api/shared"
 )
 
 var (
