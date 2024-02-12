@@ -1,3 +1,6 @@
+//go:build windows
+// +build windows
+
 package winapi
 
 // WARNING!!! This test have to be run in elevated shell.
@@ -111,7 +114,7 @@ func TestFirewallPingEnable(t *testing.T) {
 // TestFirewallRuleGet will probably work only on Windows english localisation
 func TestFirewallRuleGet(t *testing.T) {
 	var empty FWRule
-	//name := "@FirewallAPI.dll,-25326"
+	// name := "@FirewallAPI.dll,-25326"
 	name := "Core Networking - Teredo (UDP-In)"
 	r, err := FirewallRuleGet(name)
 	if r == empty {

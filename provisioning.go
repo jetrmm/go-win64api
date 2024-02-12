@@ -1,5 +1,5 @@
-//go:build windows && amd64
-// +build windows,amd64
+//go:build windows
+// +build windows
 
 package winapi
 
@@ -8,7 +8,7 @@ import (
 	"syscall"
 	"unsafe"
 
-	so "github.com/iamacarpet/go-win64api/shared"
+	so "github.com/jetrmm/go-win64api/shared"
 )
 
 var (
@@ -170,10 +170,10 @@ func CreateProvisioningPackage(params *so.NetSetupProvisioningParams) ([]byte, e
 	)
 
 	r, _, err := netCreateProvisioningPackage.Call(
-		uintptr(unsafe.Pointer(&data)),    //_In_      PNETSETUP_PROVISIONING_PARAMS pProvisioningParams
-		uintptr(unsafe.Pointer(&buff)),    //_Out_opt_ PBYTE   *ppPackageBinData
-		uintptr(unsafe.Pointer(&binSize)), //_Out_opt_ DWORD   *ppPackageBinData
-		0,                                 //_Out_opt_ LPWSTR  *ppPackageTextData
+		uintptr(unsafe.Pointer(&data)),    // _In_      PNETSETUP_PROVISIONING_PARAMS pProvisioningParams
+		uintptr(unsafe.Pointer(&buff)),    // _Out_opt_ PBYTE   *ppPackageBinData
+		uintptr(unsafe.Pointer(&binSize)), // _Out_opt_ DWORD   *ppPackageBinData
+		0,                                 // _Out_opt_ LPWSTR  *ppPackageTextData
 	)
 	if r != 0 {
 		return nil, errnoErr(syscall.Errno(r))
@@ -194,10 +194,10 @@ func RequestProvisioningPackageInstall(data []byte) error {
 	var options uint32 = netsetupProvisionOnlineCaller
 
 	r, _, err := netRequestProvisioningPackageInstall.Call(
-		uintptr(unsafe.Pointer(&data[0])),   //_In_      BYTE    *pPackageBinData
-		uintptr(dataLength),                 //_In_      DWORD   dwPackageBinDataSize
-		uintptr(options),                    //_In_      DWORD   dwProvisionOptions
-		uintptr(unsafe.Pointer(ptrWindows)), //_In_      LPCWSTR lpWindowsPath
+		uintptr(unsafe.Pointer(&data[0])),   // _In_      BYTE    *pPackageBinData
+		uintptr(dataLength),                 // _In_      DWORD   dwPackageBinDataSize
+		uintptr(options),                    // _In_      DWORD   dwProvisionOptions
+		uintptr(unsafe.Pointer(ptrWindows)), // _In_      LPCWSTR lpWindowsPath
 		0,                                   //          PVOID   pvReserved
 	)
 	if r != 0 {
