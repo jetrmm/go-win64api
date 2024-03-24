@@ -14,7 +14,7 @@ type Hardware struct {
 	BIOSReleaseDate   time.Time    `json:"biosReleaseDate"`
 	TPMSpecVersion    string       `json:"tpmSpecVersion,omitempty"`
 	IsUsingUEFI       bool         `json:"isUsingUEFI"`
-	SecureBootEnabled bool         `json:"safebootEnabled"`
+	SecureBootEnabled bool         `json:"SecureBootEnabled"`
 	CPU               []CPU        `json:"cpus"`
 	Memory            []MemoryDIMM `json:"memoryDIMMs"`
 }
