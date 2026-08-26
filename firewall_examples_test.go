@@ -1,5 +1,4 @@
 //go:build windows
-// +build windows
 
 package winapi
 
@@ -80,8 +79,8 @@ func ExampleFirewallRuleAddAdvanced_iPv6Ping() {
 	if ok {
 		fmt.Println("Rule added!")
 	}
-	// output: Rule added!
 	FirewallRuleDelete("Allow IPv6 ping") // check error!
+	// output: Rule added!
 }
 
 func ExampleFirewallRuleAddAdvanced_restrictedLocalPorts() {
